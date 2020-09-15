@@ -17,4 +17,8 @@ public class EducationRepository {
             .filter(item -> item.getUserId() == userId)
             .collect(Collectors.toList());
   }
+
+  public void save(Education education) {
+    MockDataBase.EDUCATION_LIST.add(education);
+  }
 }

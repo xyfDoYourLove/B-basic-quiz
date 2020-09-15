@@ -2,6 +2,12 @@ package com.thoughtworks.gtb.basic.quiz.basic.common;
 
 public class ExceptionMessageConstant {
 
+  public static final String YEAR_IS_REQUIRED = "历年不能为空";
+  public static final String TITLE_IS_REQUIRED = "教育经历标题不能为空";
+  public static final String ED_DESCRIPTION_ID_REQUIRED = "教育经历描述不能为空";
+  public static final String TITLE_LENGTH_IS_ILLEGAL = "教育经历标题长度不合法";
+  public static final String ED_DESCRIPTION_LENGTH_IS_ILLEGAL = "教育经历描述长度不合法";
+
   private ExceptionMessageConstant() {}
 
   public static final String USERNAME_LENGTH_IS_ILLEGAL = "用户名长度不合法";

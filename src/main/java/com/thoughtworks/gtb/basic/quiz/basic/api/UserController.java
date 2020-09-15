@@ -41,4 +41,10 @@ public class UserController {
     return userService.createUser(user);
   }
 
+  @PostMapping(path = "/{user_id}/educations")
+  @ResponseStatus(HttpStatus.CREATED)
+  public void addEducation(@PathVariable long user_id, @RequestBody @Valid Education education) {
+    educationService.addEducation(user_id, education);
+  }
+
 }
