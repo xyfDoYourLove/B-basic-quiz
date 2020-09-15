@@ -3,7 +3,7 @@ package com.thoughtworks.gtb.basic.quiz.basic.domain;
 import lombok.Data;
 
 @Data
-public class education {
+public class Education {
 
   private long userId;
 
