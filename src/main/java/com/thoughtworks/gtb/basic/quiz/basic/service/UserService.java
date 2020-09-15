@@ -7,6 +7,7 @@ import com.thoughtworks.gtb.basic.quiz.basic.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -24,5 +25,11 @@ public class UserService {
     }else {
       throw new ParamIllegalException(ExceptionMessageConstant.USER_NOT_EXIST);
     }
+  }
+
+  public long createUser(User user) {
+    user.setId(Long.parseLong(UUID.randomUUID().toString()));
+    userRepository.save(user);
+    return user.getId();
   }
 }

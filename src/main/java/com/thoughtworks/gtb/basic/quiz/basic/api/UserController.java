@@ -4,9 +4,11 @@ import com.thoughtworks.gtb.basic.quiz.basic.domain.Education;
 import com.thoughtworks.gtb.basic.quiz.basic.domain.User;
 import com.thoughtworks.gtb.basic.quiz.basic.service.EducationService;
 import com.thoughtworks.gtb.basic.quiz.basic.service.UserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -31,6 +33,12 @@ public class UserController {
   @GetMapping(path = "/{id}/educations")
   public List<Education> findEducationsByUserId(@PathVariable long id) {
     return educationService.findEducationsByUserId(id);
+  }
+
+  @PostMapping
+  @ResponseStatus(HttpStatus.CREATED)
+  public long createUser(@RequestBody @Valid User user) {
+    return userService.createUser(user);
   }
 
 }

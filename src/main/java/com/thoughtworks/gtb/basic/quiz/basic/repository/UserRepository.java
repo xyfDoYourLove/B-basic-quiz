@@ -15,4 +15,8 @@ public class UserRepository {
             .filter(item -> item.getId() == id)
             .findFirst();
   }
+
+  public void save(User user) {
+    MockDataBase.USER_LIST.add(user);
+  }
 }
