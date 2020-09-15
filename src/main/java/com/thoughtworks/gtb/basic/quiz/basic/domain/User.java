@@ -1,6 +1,8 @@
 package com.thoughtworks.gtb.basic.quiz.basic.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.thoughtworks.gtb.basic.quiz.basic.common.ExceptionMessageConstant;
+import com.thoughtworks.gtb.basic.quiz.basic.serialize.DescriptionSerializer;
 import lombok.Data;
 
 import javax.validation.constraints.Min;
@@ -26,6 +28,7 @@ public class User {
   private String avatar;
 
   @Size(max = 512, min = 8, message = ExceptionMessageConstant.DESCRIPTION_LENGTH_IS_ILLEGAL)
+  @JsonSerialize(nullsUsing = DescriptionSerializer.class)
   private String description;
 
 }

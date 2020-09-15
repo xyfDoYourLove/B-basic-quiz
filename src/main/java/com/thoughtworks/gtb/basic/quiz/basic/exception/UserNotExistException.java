@@ -1,10 +1,10 @@
 package com.thoughtworks.gtb.basic.quiz.basic.exception;
 
-public class ParamIllegalException extends RuntimeException {
+public class UserNotExistException extends RuntimeException {
 
   private final String errorMessage;
 
-  public ParamIllegalException(String errorMessage) {
+  public UserNotExistException(String errorMessage) {
     this.errorMessage = errorMessage;
   }
 
