@@ -67,6 +67,12 @@ class UserControllerTest {
   }
 
   @Test
+  void should_get_user_single_when_get_by_id_given_illegal_id() throws Exception {
+    this.mockMvc.perform(get("/users/"+99999999))
+            .andExpect(status().isNotFound());
+  }
+
+  @Test
   void should_get_educations_when_get_by_id_given_user_id() throws Exception {
     long id = MockDataBase.USER_LIST.get(0).getId();
     this.mockMvc.perform(get("/users/"+id+"/educations"))
