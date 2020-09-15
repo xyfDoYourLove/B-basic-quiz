@@ -3,7 +3,9 @@ package com.thoughtworks.gtb.basic.quiz.basic.domain;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.thoughtworks.gtb.basic.quiz.basic.common.ExceptionMessageConstant;
 import com.thoughtworks.gtb.basic.quiz.basic.serialize.DescriptionSerializer;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -11,6 +13,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
   private long id;
