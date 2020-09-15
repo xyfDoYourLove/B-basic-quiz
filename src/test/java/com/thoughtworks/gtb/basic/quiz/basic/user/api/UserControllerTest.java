@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class UserControllerTest {
+class UserControllerTest {
 
   @Autowired
   MockMvc mockMvc;
@@ -56,7 +56,7 @@ public class UserControllerTest {
   }
 
   @Test
-  public void should_get_user_single_when_get_by_id_given_id() throws Exception {
+  void should_get_user_single_when_get_by_id_given_id() throws Exception {
     long id = MockDataBase.USER_LIST.get(0).getId();
     this.mockMvc.perform(get("/users/"+id))
             .andExpect(status().isOk())
@@ -67,7 +67,7 @@ public class UserControllerTest {
   }
 
   @Test
-  public void should_get_educations_when_get_by_id_given_user_id() throws Exception {
+  void should_get_educations_when_get_by_id_given_user_id() throws Exception {
     long id = MockDataBase.USER_LIST.get(0).getId();
     this.mockMvc.perform(get("/users/"+id+"/educations"))
             .andExpect(status().isOk())
@@ -79,7 +79,7 @@ public class UserControllerTest {
   }
 
   @Test
-  public void should_add_user_when_post_user_given_user() throws Exception {
+  void should_add_user_when_post_user_given_user() throws Exception {
 
     User user4 = new User(4, "xiao", 19, "imgurleeee", "descriptionssss");
 
@@ -91,7 +91,7 @@ public class UserControllerTest {
   }
 
   @Test
-  public void should_add_education_when_post_education_given_education() throws Exception {
+  void should_add_education_when_post_education_given_education() throws Exception {
 
     long id = MockDataBase.USER_LIST.get(0).getId();
     Education education = new Education(id, 2020, "title", "description");
