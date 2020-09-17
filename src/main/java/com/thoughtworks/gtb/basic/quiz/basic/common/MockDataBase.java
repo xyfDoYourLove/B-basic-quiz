@@ -6,6 +6,7 @@ import com.thoughtworks.gtb.basic.quiz.basic.domain.User;
 import java.util.ArrayList;
 import java.util.List;
 
+// GTB: 单纯是为了方便测试吗？还是有其他的意图？
 public class MockDataBase {
 
   private MockDataBase(){};

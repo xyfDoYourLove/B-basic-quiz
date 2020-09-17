@@ -19,6 +19,7 @@ public class UserService {
 
   public User findUserById(long id) {
     Optional<User> first = userRepository.findUserById(id);
+    // GTB: 用 Optional 的话，有更优雅的写法，自己再研究一下
     if (first.isPresent()) {
       return first.get();
     }else {
@@ -27,6 +28,7 @@ public class UserService {
   }
 
   public long createUser(User user) {
+    // GTB: - 这种生成的 id 的方法不好，简单自增的 long 类型字段就可以了
     user.setId(System.currentTimeMillis());
     userRepository.save(user);
     return user.getId();

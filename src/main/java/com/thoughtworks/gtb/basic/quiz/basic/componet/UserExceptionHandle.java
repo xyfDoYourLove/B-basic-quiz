@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.Date;
 import java.util.Objects;
 
+// GTB: - 所在的包很奇怪，component 是个太过一般性的名字，放到 api 包下就可以了
 @RestControllerAdvice
 @Slf4j
 public class UserExceptionHandle {

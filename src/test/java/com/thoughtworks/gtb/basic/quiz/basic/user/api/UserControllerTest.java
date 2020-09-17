@@ -8,6 +8,7 @@ import com.thoughtworks.gtb.basic.quiz.basic.repository.EducationRepository;
 import com.thoughtworks.gtb.basic.quiz.basic.repository.UserRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -107,5 +108,19 @@ class UserControllerTest {
 
     this.mockMvc.perform(post("/users/"+id+"/educations").content(jsonString).contentType(MediaType.APPLICATION_JSON))
             .andExpect(status().isCreated());
+  }
+
+  @Test
+  void should_NOT_add_education_when_post_education_given_user_id_not_exists() throws Exception {
+
+    long id = 10086;
+    Education education = new Education(id, 2020, "title", "description");
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    // GTB: - 可以不用转成 jsonString，直接传入就行
+    String jsonString = objectMapper.writeValueAsString(education);
+
+    this.mockMvc.perform(post("/users/"+id+"/educations").content(jsonString).contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isNotFound());
   }
 }

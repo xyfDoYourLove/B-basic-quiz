@@ -1,5 +1,6 @@
 package com.thoughtworks.gtb.basic.quiz.basic.common;
 
+// GTB: + 集中管理常量
 public class ExceptionMessageConstant {
 
   public static final String YEAR_IS_REQUIRED = "历年不能为空";
