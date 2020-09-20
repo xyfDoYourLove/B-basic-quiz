@@ -1,7 +1,9 @@
 package com.thoughtworks.gtb.basic.quiz.basic.service;
 
 import com.thoughtworks.gtb.basic.quiz.basic.common.ExceptionMessageConstant;
+import com.thoughtworks.gtb.basic.quiz.basic.common.UserConvertUtil;
 import com.thoughtworks.gtb.basic.quiz.basic.domain.User;
+import com.thoughtworks.gtb.basic.quiz.basic.dto.UserDto;
 import com.thoughtworks.gtb.basic.quiz.basic.exception.UserNotExistException;
 import com.thoughtworks.gtb.basic.quiz.basic.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -13,22 +15,24 @@ public class UserService {
 
   private final UserRepository userRepository;
 
-  public UserService(UserRepository userRepository) {
+  private final UserConvertUtil userConvertUtil;
+
+  public UserService(UserRepository userRepository, UserConvertUtil userConvertUtil) {
     this.userRepository = userRepository;
+    this.userConvertUtil = userConvertUtil;
   }
 
   public User findUserById(long id) {
-    Optional<User> first = userRepository.findUserById(id);
+    Optional<UserDto> first = userRepository.findById(id);
     if (first.isPresent()) {
-      return first.get();
+      return userConvertUtil.DtoToUser(first.get());
     }else {
       throw new UserNotExistException(ExceptionMessageConstant.USER_NOT_EXIST);
     }
   }
 
   public long createUser(User user) {
-    user.setId(System.currentTimeMillis());
-    userRepository.save(user);
-    return user.getId();
+    UserDto userDto = userRepository.save(userConvertUtil.UserToDto(user));
+    return userDto.getId();
   }
 }

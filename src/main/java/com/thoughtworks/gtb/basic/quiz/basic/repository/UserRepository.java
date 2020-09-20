@@ -1,13 +1,8 @@
 package com.thoughtworks.gtb.basic.quiz.basic.repository;
 
-import com.thoughtworks.gtb.basic.quiz.basic.domain.User;
+import com.thoughtworks.gtb.basic.quiz.basic.dto.UserDto;
+import org.springframework.data.repository.CrudRepository;
 
-import java.util.Optional;
-
-public interface UserRepository {
-
-  Optional<User> findUserById(long id);
-
-  void save(User user);
+public interface UserRepository extends CrudRepository<UserDto, Long> {
 
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.thoughtworks.gtb.basic.quiz.basic.common.ExceptionMessageConstant;
 import com.thoughtworks.gtb.basic.quiz.basic.serialize.DescriptionSerializer;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
