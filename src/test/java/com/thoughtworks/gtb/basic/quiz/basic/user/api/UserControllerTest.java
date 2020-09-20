@@ -4,9 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thoughtworks.gtb.basic.quiz.basic.common.MockDataBase;
 import com.thoughtworks.gtb.basic.quiz.basic.domain.Education;
 import com.thoughtworks.gtb.basic.quiz.basic.domain.User;
-import com.thoughtworks.gtb.basic.quiz.basic.repository.EducationRepository;
-import com.thoughtworks.gtb.basic.quiz.basic.repository.UserRepository;
-import org.junit.jupiter.api.AfterEach;
+import com.thoughtworks.gtb.basic.quiz.basic.repository.memoryImpl.EducationRepositoryImpl;
+import com.thoughtworks.gtb.basic.quiz.basic.repository.memoryImpl.UserRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +29,10 @@ class UserControllerTest {
   MockMvc mockMvc;
 
   @Autowired
-  UserRepository userRepository;
+  UserRepositoryImpl userRepositoryImpl;
 
   @Autowired
-  EducationRepository educationRepository;
+  EducationRepositoryImpl educationRepositoryImpl;
 
   @BeforeEach
   public void setUp() {
@@ -43,16 +42,16 @@ class UserControllerTest {
     User user1 = new User(1, "xiao", 19, "imgurleeee", "descriptionssss");
     User user2 = new User(2, "xiao", 19, "imgurleeee", "descriptionssss");
     User user3 = new User(3, "xiao", 19, "imgurleeee", "descriptionssss");
-    userRepository.save(user1);
-    userRepository.save(user2);
-    userRepository.save(user3);
+    userRepositoryImpl.save(user1);
+    userRepositoryImpl.save(user2);
+    userRepositoryImpl.save(user3);
 
     Education education1 = new Education(1, 2020, "title_title", "description_description_description");
     Education education2 = new Education(2, 2020, "title_title", "description_description_description");
     Education education3 = new Education(3, 2020, "title_title", "description_description_description");
-    educationRepository.save(education1);
-    educationRepository.save(education2);
-    educationRepository.save(education3);
+    educationRepositoryImpl.save(education1);
+    educationRepositoryImpl.save(education2);
+    educationRepositoryImpl.save(education3);
   }
 
   @Test
