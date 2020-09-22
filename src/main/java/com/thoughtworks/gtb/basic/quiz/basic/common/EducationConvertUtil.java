@@ -3,7 +3,6 @@ package com.thoughtworks.gtb.basic.quiz.basic.common;
 import com.thoughtworks.gtb.basic.quiz.basic.domain.Education;
 import com.thoughtworks.gtb.basic.quiz.basic.dto.EducationDto;
 import com.thoughtworks.gtb.basic.quiz.basic.repository.UserRepository;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
